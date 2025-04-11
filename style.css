@@ -1,0 +1,508 @@
+/*Fuente*/
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+Hentaigana:wght@200..900&family=Special+Gothic+Expanded+One&family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --main-pink: #f268f7;
+    --main-pink-transparent: rgba(242, 104, 247, 0.2);
+    --red-color: #F44336;
+    --blue-color: #2196F3;
+    --orange-color: #FF9800;
+    --white-color: #FFFFFF;
+    --yellow-color: #FFEB3B;
+    --green-color: #4CAF50;
+    --dark-text: #333;
+    --light-text: #fff;
+    --transition-smooth: all 0.3s ease-in-out;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+}
+
+body {
+    color: var(--dark-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-color: #fafafa;
+}
+
+section {
+    min-height: 100vh;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 20%);
+}
+
+.title-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.cursor {
+    display: inline-block;
+    font-weight: 100;
+    color: var(--main-pink);
+    margin-left: 2px;
+}
+
+h1 {
+    font-family: 'Special Gothic Expanded One', sans-serif;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    color: var(--main-pink);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.1em;
+    transition: var(--transition-smooth);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 60px;
+    height: 4px;
+    background-color: currentColor;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    opacity: 0.7;
+}
+
+p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.8;
+}
+
+/* Estilos de las secciones */
+#home {
+    background: radial-gradient(ellipse at center, #ffffff 30%, var(--main-pink) 130%);
+    color: var(--dark-text);
+    position: relative;
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.7) 0%, transparent 15%),
+        radial-gradient(circle at 90% 90%, rgba(255, 255, 255, 0.7) 0%, transparent 15%);
+    pointer-events: none;
+}
+
+#red-section {
+    background-color: var(--red-color);
+    color: var(--light-text);
+    position: relative;
+}
+
+#blue-section {
+    background-color: var(--blue-color);
+    color: var(--light-text);
+}
+
+#orange-section {
+    background-color: var(--orange-color);
+    color: var(--light-text);
+}
+
+#white-section {
+    background-color: var(--white-color);
+    color: var(--dark-text);
+}
+
+#yellow-section {
+    background-color: var(--yellow-color);
+    color: var(--dark-text);
+}
+
+#green-section {
+    background-color: var(--green-color);
+    color: var(--light-text);
+}
+
+/* Estilos del canvas y contenedor del cubo */
+#canvas-container {
+    width: 500px;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto 60px;
+
+    backdrop-filter: blur(10px);
+    transition: var(--transition-smooth);
+    border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Botón de regreso */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--main-pink);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 20px rgba(242, 104, 247, 0.5);
+    z-index: 1000;
+    transition: var(--transition-smooth);
+}
+
+.back-to-top:hover {
+    background-color: #e248e7;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(242, 104, 247, 0.7);
+}
+
+/* Contenido de secciones */
+.section-content {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 25px;
+    padding: 40px;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.section-content::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.section-content:hover {
+    transform: translateY(-5px);
+}
+
+/* Efectos de hover para las secciones */
+section h2 {
+    transition: var(--transition-smooth);
+}
+
+section:hover h2 {
+    transform: translateY(-3px);
+}
+
+/* Animaciones para los párrafos */
+section p {
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+section p:hover {
+    transform: translateX(5px);
+}
+
+/* Efectos para el cursor */
+* {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="4" fill="%23f268f7" opacity="0.7"/></svg>'), auto;
+}
+
+a,
+button,
+.back-to-top,
+.color-item {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="%23f268f7" opacity="0.9"/></svg>'), pointer;
+}
+
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    #canvas-container {
+        width: 90%;
+        height: 350px;
+    }
+
+    .section-content {
+        padding: 30px 20px;
+    }
+}
+
+/* Estilo para el efecto de typing */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0
+    }
+}
+
+/* Añadir una clase para decoración de fondo en cada sección */
+.section-decoration {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--main-pink-transparent);
+    filter: blur(60px);
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.decoration-1 {
+    top: 15%;
+    left: 10%;
+    animation: float 8s ease-in-out infinite;
+}
+
+.decoration-2 {
+    bottom: 15%;
+    right: 10%;
+    width: 300px;
+    height: 300px;
+    animation: float 12s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* Mejoras para el efecto de las secciones al hacer scroll */
+section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+section:hover::after {
+    opacity: 1;
+}
+
+/* Mejorar la visualización de los iconos en los títulos */
+h2 i {
+    display: inline-block;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+h2:hover i {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Estilizar los elementos de la guía de colores para hacerlos más interactivos */
+.color-guide {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.color-item {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.color-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.color-box {
+    width: 25px;
+    height: 25px;
+    border-radius: 6px;
+    margin-right: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.color-item:hover .color-box {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Estilizar la barra de desplazamiento para que coincida con el tema */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(242, 104, 247, 0.5);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(242, 104, 247, 0.8);
+}
+
+/* Mejorar visualmente el botón de volver arriba */
+.back-to-top {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.back-to-top:hover i {
+    animation: bounce 0.8s ease infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-5px);
+    }
+
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Efecto de texto en 3D para el título principal */
+h1 {
+    text-shadow:
+        2px 2px 0 rgba(255, 255, 255, 0.2),
+        4px 4px 0 rgba(0, 0, 0, 0.1);
+    transition: text-shadow 0.3s ease;
+}
+
+h1:hover {
+    text-shadow:
+        3px 3px 0 rgba(255, 255, 255, 0.3),
+        6px 6px 0 rgba(0, 0, 0, 0.1),
+        1px 1px 10px rgba(242, 104, 247, 0.6);
+}
+
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Efecto de partículas flotantes para las secciones */
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+}

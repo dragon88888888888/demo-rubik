@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubik's Cube Navigation</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sección Home con el cubo -->
+    <section id="home">
+        <!-- Elementos decorativos -->
+        <div class="section-decoration decoration-1"></div>
+        <div class="section-decoration decoration-2"></div>
+        
+        <h1>Rubik</h1>
+        <!-- Contenedor para el cubo -->
+        <div id="canvas-container"></div>
+        
+        <!-- Guía de navegación -->
+        <div class="nav-help">
+            <h3><i class="fas fa-info-circle"></i> Haz clic en cualquier cara del cubo para navegar</h3>
+            <div class="color-guide">
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #e62c92;"></div>
+                    <span>Sección Roja</span>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #7720e9;"></div>
+                    <span>Sección Azul</span>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #f85b75;"></div>
+                    <span>Sección Naranja</span>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #ffffff;"></div>
+                    <span>Sección Blanca</span>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #eef85b;"></div>
+                    <span>Sección Amarilla</span>
+                </div>
+                <div class="color-item">
+                    <div class="color-box" style="background-color: #3ef88c;"></div>
+                    <span>Sección Verde</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Secciones por color -->
+    <section id="red-section">
+        <!-- Elementos decorativos -->
+        <div class="section-decoration decoration-1"></div>
+        <div class="section-decoration decoration-2"></div>
+        
+        <div class="section-content">
+            <h2><i class="fas fa-fire"></i> Sección Roja</h2>
+            <p>Esta sección representa la cara roja del cubo de Rubik. El rojo simboliza la pasión, la energía y la determinación, características esenciales para resolver desafíos complejos.</p>
+            <p>Ernő Rubik, el inventor del cubo, fue profesor de arquitectura y diseñó el cubo como herramienta para ayudar a entender problemas tridimensionales.</p>
+        </div>
+    </section>
+    
+    <section id="blue-section">
+        <!-- Elementos decorativos -->
+        <div class="section-decoration decoration-1"></div>
+        <div class="section-decoration decoration-2"></div>
+        
+        <div class="section-content">
+            <h2><i class="fas fa-water"></i> Sección Azul</h2>
+            <p>La cara azul del cubo representa la calma, la inteligencia y la lógica. Es el color del cielo y el océano, evocando estabilidad y profundidad.</p>
+            <p>¿Sabías que hay más de 43 quintillones de posibles configuraciones del cubo de Rubik? A pesar de esto, cualquier configuración puede resolverse en 20 movimientos o menos.</p>
+        </div>
+    </section>
+    
+    <section id="orange-section">
+        <!-- Elementos decorativos -->
+        <div class="section-decoration decoration-1"></div>
+        <div class="section-decoration decoration-2"></div>
+        
+        <div class="section-content">
+            <h2><i class="fas fa-sun"></i> Sección Naranja</h2>
+            <p>El naranja simboliza creatividad, entusiasmo y diversión. Es un color que estimula la actividad mental y alienta el pensamiento innovador.</p>
+            <p>El récord mundial de resolución del cubo de Rubik es de menos de 4 segundos, una hazaña impresionante considerando la complejidad del puzzle.</p>
+        </div>
+    </section>
+    
+    <section id="white-section">
+        <!-- Elementos decorativos -->
+        <div class="section-decoration decoration-1"></div>
+        <div class="section-decoration decoration-2"></div>
+        
+        <div class="section-content">
+            <h2><i class="fas fa-snowflake"></i> Sección Blanca</h2>
+            <p>El blanco representa la simplicidad, claridad y perfección. Es el punto de partida para muchos solucionadores del cubo.</p>
+            <p>La mayoría de los métodos de resolución comienzan con la cara blanca, creando una "cruz" como primer paso hacia la solución completa.</p>
+        </div>
+    </section>
+    
+    <section id="yellow-section">
+        <!-- Elementos decorativos -->
+        <div class="section-decoration decoration-1"></div>
+        <div class="section-decoration decoration-2"></div>
+        
+        <div class="section-content">
+            <h2><i class="fas fa-lightbulb"></i> Sección Amarilla</h2>
+            <p>El amarillo es el color de la optimismo, la iluminación y la felicidad. Opuesto al blanco en el cubo tradicional.</p>
+            <p>En muchos métodos de resolución, la cara amarilla es la última en completarse, representando el punto culminante del proceso.</p>
+        </div>
+    </section>
+    
+    <section id="green-section">
+        <!-- Elementos decorativos -->
+        <div class="section-decoration decoration-1"></div>
+        <div class="section-decoration decoration-2"></div>
+        
+        <div class="section-content">
+            <h2><i class="fas fa-leaf"></i> Sección Verde</h2>
+            <p>El verde simboliza el crecimiento, la armonía y la frescura. Evoca la perseverancia necesaria para dominar el cubo.</p>
+            <p>Desde su creación en 1974, el cubo de Rubik ha vendido más de 350 millones de unidades, convirtiéndolo en uno de los juguetes más vendidos de la historia.</p>
+        </div>
+    </section>
+    
+    <!-- Botón para volver arriba con icono mejorado -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+    
+    <!-- Importar Three.js y GSAP desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    
+   
+    
+    <!-- Scripts del proyecto -->
+    <script src="script.js"></script>
+    <script src="animation.js"></script>
+    <script src="particles.js"></script>
+</body>
+</html>
